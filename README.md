@@ -7,15 +7,15 @@ Definition: https://en.wikipedia.org/wiki/Representational_state_transfer
 >**Note:**
 
 >- An remote invocation method
->- Resource: URI/URL
-HTTP method: POST, PUT, DELETE, PUT etc
-HTTP status: 200. 201, 204, 400, 404, 409, 500 etc
+>- 1. Resource: URI/URL
+   2. HTTP method: POST, PUT, DELETE, PUT etc
+   3. HTTP status: 200. 201, 204, 400, 404, 409, 500 etc
 >- Versus SOAP
-Resource VS Action
-JSON VS SOAP
+   1. Resource VS Action
+   2. JSON VS SOAP
 >- Design API
-PATH PARAM
-QUERY PARAM
+   1. PATH PARAM
+   2. QUERY PARAM
 
 
 SPRING REST USAGE
