@@ -44,7 +44,26 @@ public class UserController {
 
         return user.get();
     }
-
+//    @RequestMapping(value = "/users", method = RequestMethod.ADD)
+//    public List<User> addAllUsers() {
+//        List<User> users = userService.findAllUsers();
+//        if (users.isEmpty()) {
+//            throw new NotFoundException("No users found");
+//        }
+//
+//        return users;
+//    }
+//    @RequestMapping(value = "/users/{id}", method = RequestMethod.ADD)
+//    public User addUser(@PathVariable("id") String id) {
+//        logger.info("Adding User with id {}", id);
+//        Optional<User> user = userService.findById(id);
+//        if (!user.isPresent()) {
+//            logger.error("User with id {} not found.", id);
+//            throw new NotFoundException(String.format("User %s not found", id));
+//        }
+//
+//        return user.add();
+//    }
 
     @RequestMapping(value = "/users", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
