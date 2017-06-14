@@ -29,17 +29,17 @@ public class UserController {
         if (users.isEmpty()) {
             throw new NotFoundException("No users found");
         }
-
+         
         return users;
     }
 
     @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
     public User getUser(@PathVariable("id") String id) {
         logger.info("Fetching User with id {}", id);
-        Optional<User> user = userService.findById(id);
+        Optional<User> user = userService.findById(id) ;
         if (!user.isPresent()) {
-            logger.error("User with id {} not found.", id);
-            throw new NotFoundException(String.format("User %s not found", id));
+            logger.error("User with id {} not found.", id) ;
+            throw new NotFoundException(String.format("User %s not found  ", id));
         }
 
         return user.get();

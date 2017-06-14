@@ -11,6 +11,8 @@ public class User {
     private int age;
 
     private BigDecimal salary;
+    
+    private int number;
 
     public User(String id, String name, int age, BigDecimal salary) {
         this.id = id;
@@ -23,7 +25,15 @@ public class User {
 
     }
 
-    public User setId(String id) {
+    public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
+
+	public User setId(String id) {
         this.id = id;
         return this;
     }
