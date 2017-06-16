@@ -1,6 +1,6 @@
 package com.example.controller;
 
-import com.example.db.Bus;
+import com.example.db.BusLineInfo;
 import com.example.exceptions.DataIntegrityViolationException;
 import com.example.exceptions.NotFoundException;
 import com.example.services.BusService;
@@ -24,19 +24,19 @@ public class BusController {
     }
 
     @RequestMapping(value = "/bus", method = RequestMethod.GET)
-    public List<Bus> listAllBus() {
-        List<Bus> bus = busService.findAllBus();
-        if (bus.isEmpty()) {
+    public List<BusLineInfo> listAllBus() {
+        List<BusLineInfo> buses = busService.findAllBus();
+        if (buses.isEmpty()) {
             throw new NotFoundException("No bus found");
         }
          
-        return bus;
+        return buses;
     }
 
     @RequestMapping(value = "/bus/{id}", method = RequestMethod.GET)
-    public Bus getBus(@PathVariable("id") String id) {
+    public BusLineInfo getBus(@PathVariable("id") String id) {
         logger.info("Fetching Bus with id {}", id);
-        Optional<Bus> bus = busService.findById(id) ;
+        Optional<BusLineInfo> bus = busService.findById(id) ;
         if (!bus.isPresent()) {
             logger.error("Bus with id {} not found.", id) ;
             throw new NotFoundException(String.format("Bus %s not found  ", id));
@@ -44,64 +44,45 @@ public class BusController {
 
         return bus.get();
     }
-//    @RequestMapping(value = "/users", method = RequestMethod.ADD)
-//    public List<User> addAllUsers() {
-//        List<User> users = userService.findAllUsers();
-//        if (users.isEmpty()) {
-//            throw new NotFoundException("No users found");
-//        }
-//
-//        return users;
-//    }
-//    @RequestMapping(value = "/users/{id}", method = RequestMethod.ADD)
-//    public User addUser(@PathVariable("id") String id) {
-//        logger.info("Adding User with id {}", id);
-//        Optional<User> user = userService.findById(id);
-//        if (!user.isPresent()) {
-//            logger.error("User with id {} not found.", id);
-//            throw new NotFoundException(String.format("User %s not found", id));
-//        }
-//
-//        return user.add();
-//    }
 
-    @RequestMapping(value = "/buss", method = RequestMethod.POST)
+
+    @RequestMapping(value = "/bus", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public void createUser(@RequestBody Bus bus) {
+    public void createBus(@RequestBody BusLineInfo bus) {
         logger.info("Creating User : {}", bus);
 
         if (busService.isBusExist(bus)) {
-            logger.error("Unable to create. A Bus with name {} already exist", bus.getUsername());
+            logger.error("Unable to create. A Bus with name {} already exist", bus.getId());
             throw new DataIntegrityViolationException("bus already exist");
         }
         busService.saveBus(bus);
     }
 
 
-    @RequestMapping(value = "/buss/{id}", method = RequestMethod.PUT)
-    public void updateUser(@PathVariable("id") String id, @RequestBody Bus bus) {
+    @RequestMapping(value = "/bus/{id}", method = RequestMethod.PUT)
+    public void updateBus(@PathVariable("id") String id, @RequestBody BusLineInfo bus) {
         logger.info("Updating Bus with id {}", id);
 
-        Optional<Bus> currentBusOpt = busService.findById(id);
+        Optional<BusLineInfo> currentBusOpt = busService.findById(id);
 
         if (!currentBusOpt.isPresent()) {
             logger.error("Unable to update. Bus with id {} not found.", id);
             throw new NotFoundException(String.format("User %s not found", id));
         }
 
-        Bus currentBus = currentBusOpt.get();
-        currentBus.setUsername(bus.getUsername());
+        BusLineInfo currentBus = currentBusOpt.get();
+        currentBus.setCaptionname(bus.getCaptionname());
 //        currentUser.setAge(bus.getAge());
 //        currentUser.setSalary(bus.getSalary());
 
         busService.updateBus(currentBus);
     }
 
-    @RequestMapping(value = "/buss/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/bus/{id}", method = RequestMethod.DELETE)
     public void deleteBus(@PathVariable("id") String id) {
         logger.info("Fetching & Deleting Bus with id {}", id);
 
-        Optional<Bus> currentBusOpt = busService.findById(id);
+        Optional<BusLineInfo> currentBusOpt = busService.findById(id);
         if (!currentBusOpt.isPresent()) {
             logger.error("Unable to delete. Bus with id {} not found.", id);
             throw new NotFoundException(String.format("Bus %s not found", id));
@@ -110,9 +91,9 @@ public class BusController {
     }
 
 
-    @RequestMapping(value = "/buss", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/bus", method = RequestMethod.DELETE)
     public void deleteAllBuss() {
-        logger.info("Deleting All Buss");
+        logger.info("Deleting All Bus");
 
         busService.deleteAllBus();
     }

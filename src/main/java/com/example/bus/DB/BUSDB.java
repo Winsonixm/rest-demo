@@ -35,9 +35,9 @@ public class BUSDB {
 		map3stop.put("6", new BusStopInfo("3", "3f", "站点3f", "8:55:00", "终点6"));
 		
 		
-		mapbus.put("1", new BusLineInfo(1,"1", "ibm", "鄂A11111", "王师傅", "13011111111", "小王", "xiaowang@aaa.com","18011111111", "45座", map1stop));
-		mapbus.put("2", new BusLineInfo(2,"2", "ibm", "鄂A22222", "张师傅", "13011111222", "小王2", "xiaowang2@aaa.com","18011121111", "40座",map2stop));
-		mapbus.put("3", new BusLineInfo(3,"3", "public", "鄂A33333", "赵师傅", "13011333111", "小王3", "xiaowang3@aaa.com","18031111111", "45座",map3stop));
+		mapbus.put("1", new BusLineInfo("1","1", "ibm", "鄂A11111", "王师傅", "13011111111", "小王", "xiaowang@aaa.com","18011111111", "45座", map1stop));
+		mapbus.put("2", new BusLineInfo("2","2", "ibm", "鄂A22222", "张师傅", "13011111222", "小王2", "xiaowang2@aaa.com","18011121111", "40座",map2stop));
+		mapbus.put("3", new BusLineInfo("3","3", "public", "鄂A33333", "赵师傅", "13011333111", "小王3", "xiaowang3@aaa.com","18031111111", "45座",map3stop));
 			
 	}
 	

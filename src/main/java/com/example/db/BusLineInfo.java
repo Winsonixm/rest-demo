@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class BusLineInfo {
 
-	private int id;
+	private String id;
 	private String linenum;
 	private String bustype;
 	private String licenseplatenum;
@@ -18,7 +18,7 @@ public class BusLineInfo {
 	
 	private Map<String, BusStopInfo> map = new LinkedHashMap();
 
-	public BusLineInfo(int id, String linenum, String bustype, String licenseplatenum, String drivername,
+	public BusLineInfo(String id, String linenum, String bustype, String licenseplatenum, String drivername,
 			String driverphonenum, String captionname, String captionemail, String captionphonenum, String seats,
 			Map<String, BusStopInfo> map) {
 		super();
@@ -35,16 +35,24 @@ public class BusLineInfo {
 		this.map = map;
 	}
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+//	public int getId() {
+//		return id;
+//	}
+//
+//	public void setId(int id) {
+//		this.id = id;
+//	}
 
 	public String getLinenum() {
 		return linenum;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public void setLinenum(String linenum) {
@@ -165,5 +173,7 @@ public class BusLineInfo {
 				+ ", captionname=" + captionname + ", captionemail=" + captionemail + ", captionphonenum="
 				+ captionphonenum + ", seats=" + seats + ", map=" + map + "]";
 	}
+
+
 
 }
