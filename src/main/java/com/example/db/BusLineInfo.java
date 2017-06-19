@@ -16,6 +16,7 @@ public class BusLineInfo {
 	private String captionphonenum;
 	private String seats;
 	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private Map<String, BusStopInfo> map = new LinkedHashMap();
 
 	public BusLineInfo(String id, String linenum, String bustype, String licenseplatenum, String drivername,

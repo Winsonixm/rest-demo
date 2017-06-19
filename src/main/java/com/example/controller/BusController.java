@@ -46,10 +46,10 @@ public class BusController {
     }
 
 
-    @RequestMapping(value = "/bus", method = RequestMethod.POST)
+    @RequestMapping(value = "/addBus", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     public void createBus(@RequestBody BusLineInfo bus) {
-        logger.info("Creating User : {}", bus);
+        logger.info("Creating bus line information : {}", bus);
 
         if (busService.isBusExist(bus)) {
             logger.error("Unable to create. A Bus with name {} already exist", bus.getId());
@@ -59,7 +59,7 @@ public class BusController {
     }
 
 
-    @RequestMapping(value = "/bus/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/updateBus/{id}", method = RequestMethod.PUT)
     public void updateBus(@PathVariable("id") String id, @RequestBody BusLineInfo bus) {
         logger.info("Updating Bus with id {}", id);
 
@@ -78,7 +78,7 @@ public class BusController {
         busService.updateBus(currentBus);
     }
 
-    @RequestMapping(value = "/bus/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/deleteBus/{id}", method = RequestMethod.DELETE)
     public void deleteBus(@PathVariable("id") String id) {
         logger.info("Fetching & Deleting Bus with id {}", id);
 
@@ -91,7 +91,7 @@ public class BusController {
     }
 
 
-    @RequestMapping(value = "/bus", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/deleteBus", method = RequestMethod.DELETE)
     public void deleteAllBuss() {
         logger.info("Deleting All Bus");
 

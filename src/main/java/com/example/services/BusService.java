@@ -1,12 +1,9 @@
 package com.example.services;
 
-import com.example.db.Bus;
 import com.example.db.BusLineInfo;
 import com.example.db.BusStopInfo;
-import com.example.models.User;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -37,6 +34,7 @@ public class BusService {
 
     public void saveBus(BusLineInfo bus) {
         bus.setId(UUID.randomUUID().toString());
+        //bus.setId(String id);
         buses.add(bus);
     }
 
@@ -57,8 +55,11 @@ public class BusService {
     	buses.clear();
     }
 
-    private static List<BusLineInfo> populateDummyBus() {
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	private static List<BusLineInfo> populateDummyBus() {
+    	
         List<BusLineInfo> buses = new ArrayList<>();
+        
     	Map map1stop = new LinkedHashMap();
     	Map map2stop = new LinkedHashMap();
     	Map map3stop = new LinkedHashMap();
@@ -81,13 +82,14 @@ public class BusService {
     		map3stop.put("5", new BusStopInfo("3", "3e", "站点3e", "7:50:00", "某路口5"));
     		map3stop.put("6", new BusStopInfo("3", "3f", "站点3f", "8:55:00", "终点6"));
     
-        buses.add(new BusLineInfo("1","1", "ibm", "鄂A11111", "王师傅", "13011111111", "小王", "xiaowang@aaa.com","18011111111", "45座", map1stop));
-        buses.add(new BusLineInfo("2","2", "ibm", "鄂A22222", "李师傅", "13011111111", "小王", "xiaowang@aaa.com","18011111111", "45座", map2stop));
-        buses.add(new BusLineInfo("3","3", "ibm", "鄂A33333", "王师傅", "13011111111", "小王", "xiaowang@aaa.com","18011111111", "40座", map3stop));
+            buses.add(new BusLineInfo("1","1", "ibm", "鄂A11111", "王师傅", "13011111111", "小王", "xiaowang@aaa.com","18011111111", "45座", map1stop));
+            buses.add(new BusLineInfo("2","2", "ibm", "鄂A22222", "李师傅", "13011111111", "小王", "xiaowang@aaa.com","18011111111", "45座", map2stop));
+            buses.add(new BusLineInfo("3","3", "ibm", "鄂A33333", "王师傅", "13011111111", "小王", "xiaowang@aaa.com","18011111111", "40座", map3stop));
         
 //        bus.add(new User(UUID.randomUUID().toString(), "Tom", 40, new BigDecimal("50000")));
 //        bus.add(new User(UUID.randomUUID().toString(), "Jerome", 45, new BigDecimal("30000")));
 //        bus.add(new User(UUID.randomUUID().toString(), "Silvia", 50, new BigDecimal("40000")));
+            
         return buses;
     }
 
