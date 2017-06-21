@@ -85,11 +85,7 @@ public class BusService {
             buses.add(new BusLineInfo("1","1", "ibm", "鄂A11111", "王师傅", "13011111111", "小王", "xiaowang@aaa.com","18011111111", "45座", map1stop));
             buses.add(new BusLineInfo("2","2", "ibm", "鄂A22222", "李师傅", "13011111111", "小王", "xiaowang@aaa.com","18011111111", "45座", map2stop));
             buses.add(new BusLineInfo("3","3", "ibm", "鄂A33333", "王师傅", "13011111111", "小王", "xiaowang@aaa.com","18011111111", "40座", map3stop));
-        
-//        bus.add(new User(UUID.randomUUID().toString(), "Tom", 40, new BigDecimal("50000")));
-//        bus.add(new User(UUID.randomUUID().toString(), "Jerome", 45, new BigDecimal("30000")));
-//        bus.add(new User(UUID.randomUUID().toString(), "Silvia", 50, new BigDecimal("40000")));
-            
+
         return buses;
     }
 

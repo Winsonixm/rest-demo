@@ -7,6 +7,7 @@ import com.example.db.BusLineInfo;
 
 public class BusDao {
 
+	@SuppressWarnings("rawtypes")
 	public Map getAll(){
 		
 		return BUSDB.getAll();
@@ -19,12 +20,6 @@ public class BusDao {
 		
 	}
 	
-	
-//	public Map findstop(String id){
-//		
-//		BusLineInfo theline = find(id);
-//		return  theline.getBusstopinfo();
-//		
-//	}
+
 	
 }

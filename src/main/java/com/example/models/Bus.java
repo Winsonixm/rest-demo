@@ -14,11 +14,12 @@ public class Bus {
     
     private int number;
 
-    public Bus(String id, String name, int age, BigDecimal salary) {
+    public Bus(String id, String name, int age, BigDecimal salary, int number) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.salary = salary;
+        this.number = number;
     }
 
     public Bus(){

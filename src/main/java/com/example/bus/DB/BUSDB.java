@@ -6,14 +6,13 @@ import java.util.Map;
 import com.example.db.BusLineInfo;
 import com.example.db.BusStopInfo;
 
-@SuppressWarnings("unchecked")
 public class BUSDB {
 
 	// 模拟班车数据库
-	private static Map mapbus = new LinkedHashMap();
-	private static Map map1stop = new LinkedHashMap();
-	private static Map map2stop = new LinkedHashMap();
-	private static Map map3stop = new LinkedHashMap();
+	private static Map<String, BusLineInfo> mapbus = new LinkedHashMap<String, BusLineInfo>();
+	private static Map<String, BusStopInfo> map1stop = new LinkedHashMap<String, BusStopInfo>();
+	private static Map<String, BusStopInfo> map2stop = new LinkedHashMap<String, BusStopInfo>();
+	private static Map<String, BusStopInfo> map3stop = new LinkedHashMap<String, BusStopInfo>();
 
 
 	static {
@@ -41,7 +40,7 @@ public class BUSDB {
 			
 	}
 	
-	public static Map getAll(){
+	public static Map<String, BusLineInfo> getAll(){
 		return mapbus;
 	}
 }

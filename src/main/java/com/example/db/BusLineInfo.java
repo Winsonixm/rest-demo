@@ -22,7 +22,9 @@ public class BusLineInfo {
 	public BusLineInfo(String id, String linenum, String bustype, String licenseplatenum, String drivername,
 			String driverphonenum, String captionname, String captionemail, String captionphonenum, String seats,
 			Map<String, BusStopInfo> map) {
+		
 		super();
+		
 		this.id = id;
 		this.linenum = linenum;
 		this.bustype = bustype;
@@ -35,14 +37,6 @@ public class BusLineInfo {
 		this.seats = seats;
 		this.map = map;
 	}
-
-//	public int getId() {
-//		return id;
-//	}
-//
-//	public void setId(int id) {
-//		this.id = id;
-//	}
 
 	public String getLinenum() {
 		return linenum;

@@ -27,7 +27,7 @@ public class BusController {
     public List<BusLineInfo> listAllBus() {
         List<BusLineInfo> buses = busService.findAllBus();
         if (buses.isEmpty()) {
-            throw new NotFoundException("No bus found");
+            throw new NotFoundException("No bus line found");
         }
          
         return buses;
@@ -53,7 +53,7 @@ public class BusController {
 
         if (busService.isBusExist(bus)) {
             logger.error("Unable to create. A Bus with name {} already exist", bus.getId());
-            throw new DataIntegrityViolationException("bus already exist");
+            throw new DataIntegrityViolationException("bus line already exist");
         }
         busService.saveBus(bus);
     }
@@ -66,8 +66,8 @@ public class BusController {
         Optional<BusLineInfo> currentBusOpt = busService.findById(id);
 
         if (!currentBusOpt.isPresent()) {
-            logger.error("Unable to update. Bus with id {} not found.", id);
-            throw new NotFoundException(String.format("User %s not found", id));
+            logger.error("Unable to update. Bus line with id {} not found.", id);
+            throw new NotFoundException(String.format("Bus line %s not found", id));
         }
 
         BusLineInfo currentBus = currentBusOpt.get();
@@ -84,14 +84,14 @@ public class BusController {
 
         Optional<BusLineInfo> currentBusOpt = busService.findById(id);
         if (!currentBusOpt.isPresent()) {
-            logger.error("Unable to delete. Bus with id {} not found.", id);
+            logger.error("Unable to delete. Bus line with id {} not found.", id);
             throw new NotFoundException(String.format("Bus %s not found", id));
         }
         busService.deleteBusById(id);
     }
 
 
-    @RequestMapping(value = "/deleteBus", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/deleteAllBus", method = RequestMethod.DELETE)
     public void deleteAllBuss() {
         logger.info("Deleting All Bus");
 
