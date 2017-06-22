@@ -33,7 +33,7 @@ public class BusService {
     }
 
     public void saveBus(BusLineInfo bus) {
-        bus.setId(UUID.randomUUID().toString());
+        //bus.setId(UUID.randomUUID().toString());
         //bus.setId(String id);
         buses.add(bus);
     }
