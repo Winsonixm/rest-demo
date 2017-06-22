@@ -69,11 +69,23 @@ public class BusController {
             logger.error("Unable to update. Bus line with id {} not found.", id);
             throw new NotFoundException(String.format("Bus line %s not found", id));
         }
-
+        
         BusLineInfo currentBus = currentBusOpt.get();
+       
+        currentBus.setLinenum(bus.getLinenum());
+        currentBus.setBustype(bus.getBustype());
+        
+        currentBus.setLicenseplatenum(bus.getLicenseplatenum());
+        
+        currentBus.setDrivername(bus.getDrivername());
+        currentBus.setDriverphonenum(bus.getDriverphonenum());
+        
         currentBus.setCaptionname(bus.getCaptionname());
-//        currentUser.setAge(bus.getAge());
-//        currentUser.setSalary(bus.getSalary());
+        currentBus.setCaptionemail(bus.getCaptionemail());
+        currentBus.setCaptionphonenum(bus.getCaptionphonenum());
+        
+        currentBus.setSeats(bus.getSeats());
+      
 
         busService.updateBus(currentBus);
     }
