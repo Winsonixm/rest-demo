@@ -87,6 +87,8 @@ public class BusService {
             buses.add(new BusLineInfo("3","3", "ibm", "鄂A33333", "王师傅", "13011111111", "小王", "xiaowang@aaa.com","18011111111", "40座", map3stop));
 
         return buses;
+        
+        
     }
 
 }

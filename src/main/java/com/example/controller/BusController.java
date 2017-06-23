@@ -52,8 +52,8 @@ public class BusController {
         logger.info("Creating bus line information : {}", bus);
 
         if (busService.isBusExist(bus)) {
-            logger.error("Unable to create. A Bus with name {} already exist", bus.getId());
-            throw new DataIntegrityViolationException("bus line already exist");
+            logger.error("Unable to create. A Bus line with name {} already exist", bus.getId());
+            throw new DataIntegrityViolationException("Bus line already exist");
         }
         busService.saveBus(bus);
     }
@@ -61,7 +61,7 @@ public class BusController {
 
     @RequestMapping(value = "/updateBus/{id}", method = RequestMethod.PUT)
     public void updateBus(@PathVariable("id") String id, @RequestBody BusLineInfo bus) {
-        logger.info("Updating Bus with id {}", id);
+        logger.info("Updating Bus line with id {}", id);
 
         Optional<BusLineInfo> currentBusOpt = busService.findById(id);
 
@@ -85,6 +85,8 @@ public class BusController {
         currentBus.setCaptionphonenum(bus.getCaptionphonenum());
         
         currentBus.setSeats(bus.getSeats());
+        
+        currentBus.setBusstopinfo(bus.getBusstopinfo());
       
 
         busService.updateBus(currentBus);
